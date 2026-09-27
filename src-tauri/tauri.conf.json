@@ -15,12 +15,12 @@
         "label": "builder",
         "title": "Arky - Wheel Builder",
         "url": "index.html",
-        "width": 420,
-        "height": 300,
-        "minWidth": 420,
-        "minHeight": 300,
+        "width": 1190,
+        "height": 720,
+        "minWidth": 780,
+        "minHeight": 620,
         "center": true,
-        "resizable": false,
+        "resizable": true,
         "decorations": false
       },
       {
