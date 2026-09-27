@@ -1,0 +1,72 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Arky",
+  "version": "0.1.0",
+  "identifier": "com.bidanext.gyre",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "builder",
+        "title": "Arky - Wheel Builder",
+        "url": "index.html",
+        "width": 420,
+        "height": 300,
+        "minWidth": 420,
+        "minHeight": 300,
+        "center": true,
+        "resizable": false,
+        "decorations": false
+      },
+      {
+        "label": "wheel",
+        "title": "Arky - Wheel",
+        "url": "wheel.html",
+        "width": 620,
+        "height": 620,
+        "resizable": false,
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "visible": false,
+        "focus": false,
+        "shadow": false
+      },
+      {
+        "label": "clipboard-history",
+        "title": "Arky - Clipboard History",
+        "url": "clipboard.html",
+        "width": 360,
+        "height": 420,
+        "resizable": false,
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "visible": false,
+        "focus": false,
+        "shadow": true
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+:root,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  user-select: none;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+#root,
+#root > .wheel-renderer {
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,54 @@
+[package]
+name = "arky"
+version = "0.1.0"
+description = "A free, open-source radial action wheel and clipboard history utility."
+authors = ["Adib Chiguer"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+# The `_lib` suffix may seem redundant but it is necessary
+# to make the lib name unique and wouldn't conflict with the bin name.
+# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
+name = "arky_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+# Cross-platform "open a file/app/url with the default handler" — one call
+# works for launch_app and open_url_or_file alike.
+open = "5"
+# Cross-platform clipboard access and change monitoring for snippets and history.
+clipboard-rs = { version = "0.3.5", default-features = false, features = ["image", "wayland"] }
+# Cross-platform cursor position, used to center the wheel under the mouse.
+mouse_position = "0.1"
+tauri-plugin-dialog = "2"
+tauri-plugin-global-shortcut = "2"
+base64 = "0.22"
+image = { version = "0.25", default-features = false, features = ["png"] }
+sysinfo = "=0.37.2"
+xcap = "=0.4.1"
+uuid = { version = "1", features = ["v4"] }
+
+[target.'cfg(target_os = "windows")'.dependencies]
+windows-icons = "0.3"
+windows = { version = "0.61.3", features = [
+  "Win32_Foundation",
+  "Win32_Storage_FileSystem",
+  "Win32_System_Com",
+  "Win32_System_DataExchange",
+  "Win32_UI_Shell",
+  "Win32_UI_WindowsAndMessaging",
+] }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+plist = "1"
+
+[target.'cfg(any(target_os = "macos", windows, target_os = "linux"))'.dependencies]
+tauri-plugin-autostart = "2.5.1"
